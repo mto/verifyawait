@@ -46,10 +46,9 @@ public class VerifyAwait extends Controller {
         System.out.println("Start handling request on thread: " + Thread.currentThread().getName());
         System.out.println(session.getId());
         for (int i = 0; i < 10; i++) {
-            final int index = i;
-            String s = await(fetchParamTask(index));
+            String s = await(fetchParamTask(i));
             System.out.println("Current thread: " + Thread.currentThread().getName());
-            System.out.println(index + "th result: " + s);
+            System.out.println(i + "th result: " + s);
             System.out.println(session.getId());
         }
         System.out.println("------------------------END ------------------------------------------");
